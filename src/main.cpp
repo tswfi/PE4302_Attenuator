@@ -2,7 +2,7 @@
 #include <ClickEncoder.h>
 #include <TimerOne.h>
 #include <U8g2lib.h>
-#include <ArduinoPE43xx.h>
+#include <PE43xx.h>
 
 // encoder
 #define ENCODER_PINA 8
@@ -16,7 +16,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
 #define digits 1
 
 // attenuator
-ArduinoPE43xx attenuator(A4, A5, A6, PE4302);
+PE43xx attenuator(A4, A5, A6, PE4302);
 
 float newlevel = 0;
 

@@ -7,7 +7,7 @@ Simple attenuator built with PE4302 and Arduino "pro micro".
 As always someone else has built something great and we can use it for our own projects. Thanks to the following libraries this project was much easier to write:
 
 * ArduinoPE4302
-  * https://github.com/tswfi/ArduinoPE43xx
+  * https://github.com/tswfi/PE43xx
 * U8g2
   * https://platformio.org/lib/show/942/U8g2/examples
 * ClickEncoder
