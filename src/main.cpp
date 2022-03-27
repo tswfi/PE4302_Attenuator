@@ -9,6 +9,7 @@
 #define ENCODER_PINB 9
 #define ENCODER_BTN 7
 #define ENCODER_STEPS_PER_NOTCH 2
+#define ENCODER_VCC 6
 ClickEncoder encoder = ClickEncoder(ENCODER_PINA, ENCODER_PINB, ENCODER_BTN, ENCODER_STEPS_PER_NOTCH);
 
 // oled
@@ -16,7 +17,10 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
 #define digits 1
 
 // attenuator
-PE43xx attenuator(A4, A5, A6, PE4302);
+#define ATTENUATOR_PIN_LE A3
+#define ATTENUATOR_PIN_CLK A2
+#define ATTENUATOR_PIN_DATA A1
+PE43xx attenuator(ATTENUATOR_PIN_LE, ATTENUATOR_PIN_CLK, ATTENUATOR_PIN_DATA, PE4302);
 
 float newlevel = 0;
 
@@ -33,8 +37,9 @@ void timerIsr()
 
 void setup()
 {
-  // for debugging
-  Serial.begin(9600);
+  // just for encoder vcc
+  pinMode(ENCODER_VCC, OUTPUT);
+  digitalWrite(ENCODER_VCC, HIGH);
 
   // no need for these
   encoder.setButtonHeldEnabled(false);
